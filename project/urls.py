@@ -14,8 +14,17 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-
+from tickets import views
+from django.urls import path,include
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('rami/', admin.site.urls),
+    # path('', include('tickets.urls',namespace='tickets')),
+    #1
+    path('django/jasonresponsenomodel/',views.no_rest_no_model),
+    #2
+    path('django/',views.no_rest_from_model),
+    #3.1 GET & POST from rest freamework function based view @api_view
+    path('rest/fbv/',views.FBV_list),
+    #3.2 GET & PUT & DELETE from rest freamework function based view @api_view
+    path('rest/fb/<int:pk>',views.FBV_pk),
 ]
