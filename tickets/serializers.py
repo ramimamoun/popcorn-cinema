@@ -10,7 +10,7 @@ class MovieSerializer(serializers.ModelSerializer):
 class GuestSerializer(serializers.ModelSerializer):
     class Meta:
         model = Guest
-        fields = ['user','name','phone','email',]
+        fields = ['pk','user','name','phone','email']
 
 
 class ReservationSerializer(serializers.ModelSerializer):
